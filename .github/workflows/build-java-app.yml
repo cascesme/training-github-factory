@@ -11,6 +11,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+      - name: Set up Maven
+        uses: aahmed-se/setup-maven@v3
+        with:
+          maven-version: 3.6.1
       - name: run build
         run: ./mvn clean build
       - name: Upload the artifact
