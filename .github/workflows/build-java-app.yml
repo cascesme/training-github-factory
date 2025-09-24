@@ -1,20 +1,20 @@
-name: build-java-app.yml
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'maven'
-      - name: run build
-        run: ./mvn clean build
-      - name: Upload the artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: java-app
-          path: '/app/target/*.jar'
+#name: build-java-app.yml
+#on: [push, pull_request]
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v4
+#        with:
+#          distribution: 'temurin'
+#          java-version: '17'
+#          cache: 'maven'
+#      - name: run build
+#        run: ./mvn clean build
+#      - name: Upload the artifact
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: java-app
+#          path: '/java-app/staging/'
