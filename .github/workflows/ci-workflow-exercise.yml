@@ -39,6 +39,7 @@ jobs:
   # ℹ️ Should run only for branches starting with 'bugfix/'
   bugfix-check:
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'bugfix/' }}
     needs: build
     steps:
       - name: Run Bugfix Validation
