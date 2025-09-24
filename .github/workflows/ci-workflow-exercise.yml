@@ -30,6 +30,7 @@ jobs:
   # ℹ️ Should run only for: main, feature/* and bugfix/*
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Run Tests
         run: echo "✅ Testing on ${{ github.ref }}"
@@ -38,6 +39,7 @@ jobs:
   # ℹ️ Should run only for branches starting with 'bugfix/'
   bugfix-check:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Run Bugfix Validation
         run: echo "🕵️ Bugfix validation for ${{ github.ref }}"
@@ -56,7 +58,7 @@ jobs:
   # ℹ️ Should run only for the 'main' branch
   deploy:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: cve-scan
     steps:
       - name: Deploy
         run: echo "🚀 Deploying ${{ github.ref }}"
